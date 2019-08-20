@@ -21,8 +21,12 @@ while(True):
 
     cv2.putText(im_flipped, 'x', (int(w/2), int(h/2)),
                 cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 255))
-    cv2.putText(im_flipped, str(r)+','+str(g)+','+str(b), (20, 30),
-                cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 255))
+    cv2.putText(im_flipped, str(b), (20, 30),
+                cv2.FONT_HERSHEY_PLAIN, 2, (255, 0, 0))
+    cv2.putText(im_flipped, str(g), (90, 30),
+                cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0))
+    cv2.putText(im_flipped, str(r), (160, 30),
+                cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255))
     #############################################
 
     if(np.sum(mask) > 0.1*h*w):
