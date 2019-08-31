@@ -31,9 +31,9 @@ im_hsv = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
 mask = np.zeros(im_hsv.shape[:2],np.uint8)
 for i in range(0,mask.shape[0]):
     for j in range (0,mask.shape[1]):
-        nb_skin_prob = h_skin_prob[im_hsv[i][j][0]]*s_skin_prob[im_hsv[i][j][1]]*skin_prob
-        nb_nonskin_prob = h_nonskin_prob[im_hsv[i][j][0]] * s_nonskin_prob[im_hsv[i][j][1]]*nonskin_prob
-        if nb_skin_prob > nb_nonskin_prob:
+        class_skin_prob = h_skin_prob[im_hsv[i][j][0]]*s_skin_prob[im_hsv[i][j][1]]*skin_prob
+        class_nonskin_prob = h_nonskin_prob[im_hsv[i][j][0]] * s_nonskin_prob[im_hsv[i][j][1]]*nonskin_prob
+        if class_skin_prob > class_nonskin_prob:
             mask[i][j] = 255
 
 cv2.imshow("image",im)
