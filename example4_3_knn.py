@@ -3,6 +3,7 @@ import cv2
 
 count = 0
 charlist = "ABCDF"
+answerlist = "AAAAABBBBBCCCCCDDDDDFFFFF"
 
 #hog = cv2.HOGDescriptor((50,50),(50,50),(50,50),(50,50),9)
 hog = cv2.HOGDescriptor((50,50),(20,20),(10,10),(10,10),9)
