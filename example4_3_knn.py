@@ -4,8 +4,8 @@ import cv2
 count = 0
 charlist = "ABCDF"
 
-hog = cv2.HOGDescriptor((50,50),(50,50),(50,50),(50,50),9)
-#hog = cv2.HOGDescriptor((50,50),(20,20),(10,10),(10,10),9)
+#hog = cv2.HOGDescriptor((50,50),(50,50),(50,50),(50,50),9)
+hog = cv2.HOGDescriptor((50,50),(20,20),(10,10),(10,10),9)
 #WinSize, BlockSize, BlockStride, CellSize, NBins
 
 label_train = np.zeros((25,1))
@@ -36,8 +36,12 @@ for im_id in range(1,26):
     im = cv2.GaussianBlur(im, (3, 3), 0)
     h = hog.compute(im)
     _,result,_,_ = knn.findNearest(h.reshape(1,-1).astype(np.float32),1)
-    cv2.imshow(str(im_id)+"="+charlist[result[0][0].astype(int)],im)
-    cv2.moveWindow(str(im_id)+"="+charlist[result[0][0].astype(int)],100+((im_id-1)%5)*70,np.floor((im_id-1)/5).astype(int)*150)
+    im = cv2.cvtColor(im,cv2.COLOR_GRAY2BGR)
+    if answerlist[im_id-1] != charlist[result[0][0].astype(int)]:
+        im[:,:,2] = 255
+        cv2.putText(im, charlist[result[0][0].astype(int)] , (20, 20), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 0))
+    cv2.imshow(str(im_id) + "=" + charlist[result[0][0].astype(int)], cv2.resize(im, (100, 100)))
+    cv2.moveWindow(str(im_id) + "=" + charlist[result[0][0].astype(int)], 100 + ((im_id - 1) % 5) * 120, np.floor((im_id - 1) / 5).astype(int) * 150)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
