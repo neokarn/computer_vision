@@ -28,7 +28,7 @@ xs = []
 ys = []
 for patch in (grass_patches + sky_patches):
     glcm = greycomatrix(patch, [5], [0], 256, symmetric=True, normed=True)
-    xs.append(greycoprops(glcm, 'dissimilarity')[0, 0])
+    xs.append(greycoprops(glcm, 'contrast')[0, 0])
     ys.append(greycoprops(glcm, 'correlation')[0, 0])
 
 # create the figure
@@ -53,7 +53,7 @@ ax.plot(xs[:len(grass_patches)], ys[:len(grass_patches)], 'go',
         label='Grass')
 ax.plot(xs[len(grass_patches):], ys[len(grass_patches):], 'bo',
         label='Sky')
-ax.set_xlabel('GLCM Dissimilarity')
+ax.set_xlabel('GLCM Contrast')
 ax.set_ylabel('GLCM Correlation')
 ax.legend()
 
