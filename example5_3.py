@@ -4,7 +4,7 @@ import cv2
 from skimage.feature import greycomatrix, greycoprops
 
 
-im = cv2.imread("C://Users//surface//Google Drive//gmkarn@gmail.com//Computer Vision//2559-01//MATLAB//Texture//Beef//1.jpg")
+im = cv2.imread("Texture//Beef//1.jpg")
 im_gray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
 cv2.imshow("image",im)
 
