@@ -13,6 +13,8 @@ model.compile(optimizer='sgd',
               loss='binary_crossentropy',
               metrics=['accuracy'])
 
+model.summary()
+
 #for plot_model
 #install Graphviz (https://www.graphviz.org/)
 #set PATH to Graphviz\bin (eg. C:\Program Files (x86)\Graphviz2.38\bin)
