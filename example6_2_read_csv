@@ -1,0 +1,56 @@
+from keras.models import Model
+from keras.layers import Input, Dense
+from keras.utils import to_categorical
+import numpy as np
+
+#Create model
+input = Input(shape=(5,)) #5 Features
+hidden1 = Dense(5, activation='tanh')(input)
+hidden2 = Dense(5, activation='tanh')(hidden1)
+output = Dense(3, activation='softmax')(hidden2) #Classification (3 classes)
+model = Model(inputs=input, outputs=output)
+
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+model.summary()
+
+#Read data from file
+data = np.asarray([[float(num) for num in line.split(',')] for line in open('data.csv')])
+print('---------------- DATA -----------------------------------------')
+print(data)
+
+#Train Model
+x_train = data[0:80,0:5] # First 80 samples for training
+y_train = data[0:80,5]
+
+print('---------------- x_train -----------------------------------------')
+print(x_train)
+print('---------- y_train before to_categorical()----------------------------------')
+print(y_train)
+
+y_train = to_categorical(y_train)
+print('---------- y_train after to_categorical()----------------------------------')
+print(y_train) #one hot vectors
+
+model.fit(x_train, y_train, epochs=100, batch_size=5)
+
+
+#Test Model
+x_test = data[80:,0:5]
+y_test = data[80:,5]
+y_test= to_categorical(y_test)
+
+y_pred = model.predict(x_test)
+print('---------- y_pred before argmax()----------------------------------')
+print(y_pred)
+
+y_pred = np.argmax(y_pred,axis = -1)
+print('---------- y_pred after argmax()----------------------------------')
+print(y_pred)
+
+score = model.evaluate(x_test, y_test)
+
+print('---------- score ----------------------------------')
+print(score)
