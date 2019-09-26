@@ -1,6 +1,7 @@
 from keras.models import Model
 from keras.layers import Input, Dense
 from keras.utils import to_categorical
+from sklearn.metrics import confusion_matrix
 import numpy as np
 
 #Create model
@@ -40,7 +41,6 @@ model.fit(x_train, y_train, epochs=100, batch_size=5)
 #Test Model
 x_test = data[80:,0:5]
 y_test = data[80:,5]
-y_test= to_categorical(y_test)
 
 y_pred = model.predict(x_test)
 print('---------- y_pred before argmax()----------------------------------')
@@ -50,7 +50,11 @@ y_pred = np.argmax(y_pred,axis = -1)
 print('---------- y_pred after argmax()----------------------------------')
 print(y_pred)
 
-score = model.evaluate(x_test, y_test)
+print('---------- Confusion Matrix ----------------------------------')
+cm = confusion_matrix(y_test, y_pred) #y_test y_pred class index
+print(cm)
 
-print('---------- score ----------------------------------')
+print('---------- model.evaluate() ----------------------------------')
+y_test = to_categorical(y_test)
+score = model.evaluate(x_test, y_test) #y_test one hot
 print(score)
