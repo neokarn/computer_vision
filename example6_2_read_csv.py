@@ -23,8 +23,8 @@ print('---------------- DATA -----------------------------------------')
 print(data)
 
 #Train Model
-x_train = data[0:80,0:5] # First 80 samples for training
-y_train = data[0:80,5]
+x_train = data[0:120,0:5] # First 80 samples for training
+y_train = data[0:120,5]
 
 print('---------------- x_train -----------------------------------------')
 print(x_train)
@@ -39,8 +39,8 @@ model.fit(x_train, y_train, epochs=100, batch_size=5)
 
 
 #Test Model
-x_test = data[80:,0:5]
-y_test = data[80:,5]
+x_test = data[120:,0:5]
+y_test = data[120:,5]
 
 y_pred = model.predict(x_test)
 print('---------- y_pred before argmax()----------------------------------')
