@@ -5,7 +5,7 @@ cap = cv2.VideoCapture(0)
 orb = cv2.ORB_create()
 bf = cv2.BFMatcher(cv2.NORM_HAMMING)
 
-ref = cv2.imread('C://Users//surface//Google Drive//gmkarn@gmail.com//Computer Vision//2560-01//onepiece73.jpg', cv2.COLOR_BGR2GRAY)
+ref = cv2.imread('onepiece73.jpg', cv2.COLOR_BGR2GRAY)
 h,w,_ = ref.shape
 ref = cv2.resize(ref,(int(w*0.7),int(h*0.7)))
 
