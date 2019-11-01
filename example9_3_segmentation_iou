@@ -34,8 +34,8 @@ print(model.summary())
 
 
 def iou(y_true, y_pred):
-    y_true = K.round(y_true)
-    y_pred = K.round(y_pred)
+    y_true = K.cast(K.greater(y_true, 0.5), dtype='float32')
+    y_pred = K.cast(K.greater(y_pred, 0.5), dtype='float32')
     inter = K.sum(K.sum(K.squeeze(y_true * y_pred, axis=3), axis=2), axis=1)
     union = K.sum(K.sum(K.squeeze(K.clip(y_true + y_pred, 0, 1), axis=3), axis=2), axis=1)
     return K.mean((inter + K.epsilon()) / (union + K.epsilon()))
