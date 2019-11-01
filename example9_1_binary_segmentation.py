@@ -4,6 +4,8 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint
 import matplotlib.pyplot as plt
 
+#Download dataset from https://drive.google.com/file/d/1wWuxCQJEOQX980LuwSjTBM-EzbOJQtJy/view?usp=sharing
+
 BATCH_SIZE = 5
 MAX_EPOCH = 30
 IMAGE_SIZE = (256,256)
