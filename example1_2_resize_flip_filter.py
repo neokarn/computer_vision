@@ -13,13 +13,13 @@ while(True):
     #im_flipped = cv2.flip(im_resized,1)
     ##################################################
 
-    ############ Blurred ############################
+    ############ Blurring ############################
     #L = 25
     #kernel = np.ones((L, L), np.float32) / L / L
     #im_blurred = cv2.filter2D(im_flipped, -1, kernel)
     ##################################################
 
-    cv2.imshow('camera',im) #######################################
+    cv2.imshow('camera',im) ################## Show im_resized, im_flipped, im_blurred
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
