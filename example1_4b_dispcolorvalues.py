@@ -29,7 +29,7 @@ while(True):
                 cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255))
     #############################################
 
-    if(np.sum(mask) > 0.1*h*w):
+    if(np.sum(mask/255) > 0.1*h*w):
         cv2.putText(im_flipped,'Coke',(50,100),cv2.FONT_HERSHEY_PLAIN,5,(255,255,255))
 
     cv2.imshow('camera', im_flipped)
