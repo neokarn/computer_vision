@@ -13,7 +13,9 @@ while(True):
     mask = cv2.inRange(im_flipped,(0,0,90),(50,50,255))
     cv2.imshow('mask', mask)
 
-    if(np.sum(mask) > 300000):
+    #print(np.sum(mask/255))
+
+    if(np.sum(mask/255) > 300000):
         cv2.putText(im_flipped,'Coke',(50,100),cv2.FONT_HERSHEY_PLAIN,5,(255,255,255))
 
     cv2.imshow('camera', im_flipped)
