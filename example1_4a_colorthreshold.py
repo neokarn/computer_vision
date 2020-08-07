@@ -10,8 +10,6 @@ while(True):
     im_resized = cv2.resize(im, TARGET_SIZE)
     im_flipped = cv2.flip(im_resized, 1)
 
-    h,w = im.shape[:2]
-
     mask = cv2.inRange(im_flipped,(0,0,90),(50,50,255))
     cv2.imshow('mask', mask)
 
