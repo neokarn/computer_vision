@@ -1,7 +1,9 @@
 import numpy as np
 import cv2
 
-cap = cv2.VideoCapture('C://Users//surface//Downloads//ExampleBGSubtraction.avi')
+#Download 'ExampleBGSubtraction.avi' from https://drive.google.com/file/d/1OD_A0wqN2Om2SusCztybu-_hMSUQuRt7/view?usp=sharing
+
+cap = cv2.VideoCapture('ExampleBGSubtraction.avi')
 
 haveFrame,bg = cap.read()
 
