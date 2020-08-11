@@ -18,7 +18,9 @@ while(cap.isOpened()):
 
     bwmask_median = cv2.medianBlur(bwmask,5)
 
-    contours,hierarchy = cv2.findContours(bwmask_median, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+    contours,hierarchy = cv2.findContours(bwmask_median, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE) #for opencv 4.x.x
+    #contourmask,contours,hierarchy = cv2.findContours(bwmask_median, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE) #for opencv 3.2.x 3.4.x
+    #contourmask,contours,hierarchy = cv2.findContours(bwmask_median.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE) #for opencv 3.1.x
 
     cv2.drawContours(im, contours, -1, (0, 255, 0), 1)
 
