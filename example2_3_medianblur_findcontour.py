@@ -1,8 +1,10 @@
 import cv2
 
+#Download 'ExampleBGSubtraction.avi' from https://drive.google.com/file/d/1OD_A0wqN2Om2SusCztybu-_hMSUQuRt7/view?usp=sharing
+
 cap = cv2.VideoCapture('ExampleBGSubtraction.avi')
 
-_,bg = cap.read()
+haveFrame,bg = cap.read()
 
 while(cap.isOpened()):
     haveFrame,im = cap.read()
@@ -17,14 +19,15 @@ while(cap.isOpened()):
     bwmask = cv2.medianBlur(bwmask,5)
 
     temp = bwmask.copy()
-    contourmask,contours,hierarchy = cv2.findContours(temp, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+    #contourmask,contours,hierarchy = cv2.findContours(temp, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE) 
+    contours, hierarchy = cv2.findContours(temp, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE) 
 
-    cv2.drawContours(im, contours, -1, (0, 255, 0), 2)
+    cv2.drawContours(im, contours, -1, (0, 255, 0), 1)
 
     cv2.imshow('bwmask', bwmask)
     cv2.moveWindow('bwmask',10,10)
-    cv2.imshow('contourmask',contourmask)
-    cv2.moveWindow('contourmask', 400, 10)
+    #cv2.imshow('contourmask',contourmask)
+    #cv2.moveWindow('contourmask', 400, 10)
     cv2.imshow('im', im)
     cv2.moveWindow('im', 800, 10)
 
