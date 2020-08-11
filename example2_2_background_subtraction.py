@@ -1,8 +1,10 @@
 import cv2
 
+#Download 'ExampleBGSubtraction.avi' from https://drive.google.com/file/d/1OD_A0wqN2Om2SusCztybu-_hMSUQuRt7/view?usp=sharing
+
 cap = cv2.VideoCapture('ExampleBGSubtraction.avi')
 
-_,bg = cap.read()
+haveFrame,bg = cap.read()
 
 while(cap.isOpened()):
     haveFrame,im = cap.read()
