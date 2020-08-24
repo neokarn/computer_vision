@@ -1,6 +1,8 @@
 import numpy as np
 import cv2
 
+# Download files from https://drive.google.com/file/d/1XdZLvORnCnfpyBYflh15I58VQrQdVlUe/view?usp=sharing
+
 for im_id in range(1,4):
     print(im_id)
     im = cv2.imread("SkinTrain"+str(im_id)+".jpg")
@@ -29,14 +31,18 @@ for im_id in range(1,4):
 labels = np.zeros((len(h_skin_all)+len(h_nonskin_all),1))
 labels[0:len(h_skin_all)] = 1
 
+print("label's shape: ", labels.shape)
+
 features = np.zeros((len(h_skin_all)+len(h_nonskin_all),2))
 features[:,0] = np.concatenate((h_skin_all,h_nonskin_all))
 features[:,1] = np.concatenate((s_skin_all,s_nonskin_all))
 
+print("features's shape: ", features.shape)
 
 svm = cv2.ml.SVM_create()
-svm.setKernel(cv2.ml.SVM_POLY)
-svm.setDegree(2)
+svm.setKernel(cv2.ml.SVM_LINEAR)
+#svm.setKernel(cv2.ml.SVM_POLY)
+#svm.setDegree(2)
 svm.train(features.astype(np.float32), cv2.ml.ROW_SAMPLE, labels.astype(np.int32))
 
 responses = svm.predict(features.astype(np.float32))[1]
