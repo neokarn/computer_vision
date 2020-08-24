@@ -2,16 +2,16 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-#Download files from https://drive.google.com/file/d/1XdZLvORnCnfpyBYflh15I58VQrQdVlUe/view?usp=sharing
+# Download files from https://drive.google.com/file/d/1XdZLvORnCnfpyBYflh15I58VQrQdVlUe/view?usp=sharing
 
-for im_id in range(1,4):
+for im_id in range(1, 4):
     print(im_id)
-    im = cv2.imread("SkinTrain"+str(im_id)+".jpg")
-    mask = cv2.imread("SkinTrain"+str(im_id)+"_mask.jpg",0)
+    im = cv2.imread("SkinDetection\SkinTrain" + str(im_id) + ".jpg")
+    mask = cv2.imread("SkinDetection\SkinTrain" + str(im_id) + "_mask.jpg", 0)
 
-    im_hsv = cv2.cvtColor(im,cv2.COLOR_BGR2HSV)
-    h = im_hsv[:,:,0]
-    s = im_hsv[:,:,1]
+    im_hsv = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
+    h = im_hsv[:, :, 0]
+    s = im_hsv[:, :, 1]
 
     h_skin = [val for (i, val) in enumerate(h.reshape(1, -1)[0]) if mask.reshape(1, -1)[0][i] >= 128]
     s_skin = [val for (i, val) in enumerate(s.reshape(1, -1)[0]) if mask.reshape(1, -1)[0][i] >= 128]
@@ -24,13 +24,27 @@ for im_id in range(1,4):
         h_nonskin_all = h_nonskin
         s_nonskin_all = s_nonskin
     else:
-        h_skin_all = np.concatenate((h_skin_all,h_skin))
-        s_skin_all = np.concatenate((s_skin_all,s_skin))
-        h_nonskin_all = np.concatenate((h_nonskin_all,h_nonskin))
-        s_nonskin_all = np.concatenate((s_nonskin_all,s_nonskin))
+        h_skin_all = np.concatenate((h_skin_all, h_skin))
+        s_skin_all = np.concatenate((s_skin_all, s_skin))
+        h_nonskin_all = np.concatenate((h_nonskin_all, h_nonskin))
+        s_nonskin_all = np.concatenate((s_nonskin_all, s_nonskin))
 
-plt.plot(h_nonskin_all,s_nonskin_all,'b.')
-plt.plot(h_skin_all,s_skin_all,'r.')
+plt.figure(0)
+plt.plot(h_nonskin_all, s_nonskin_all, 'b.')
+plt.plot(h_skin_all, s_skin_all, 'r.')
+
+plt.figure(1)
+plt.subplot(2,1,1)
+plt.hist(h_nonskin_all,bins=180,color='b')
+plt.subplot(2,1,2)
+plt.hist(h_skin_all,bins=180,color='r')
+
+plt.figure(2)
+plt.subplot(2,1,1)
+plt.hist(s_nonskin_all,bins=180,color='b')
+plt.subplot(2,1,2)
+plt.hist(s_skin_all,bins=180,color='r')
+
 plt.show()
 
 cv2.waitKey(0)
