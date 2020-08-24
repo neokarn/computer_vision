@@ -2,6 +2,8 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
+#Download files from https://drive.google.com/file/d/1XdZLvORnCnfpyBYflh15I58VQrQdVlUe/view?usp=sharing
+
 im = cv2.imread("SkinTrain1.jpg")
 mask = cv2.imread("SkinTrain1_mask.jpg",0)
 
