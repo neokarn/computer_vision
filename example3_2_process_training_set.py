@@ -2,6 +2,8 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
+#Download files from https://drive.google.com/file/d/1XdZLvORnCnfpyBYflh15I58VQrQdVlUe/view?usp=sharing
+
 for im_id in range(1,4):
     print(im_id)
     im = cv2.imread("SkinTrain"+str(im_id)+".jpg")
