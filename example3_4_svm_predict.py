@@ -60,7 +60,8 @@ for im_id in range(1,6):
     print("features's shape (test image): ", features.shape)
 
     responses = svm.predict(features.astype(np.float32))[1]
-
+    
+    cv2.imshow("image" + str(im_id), im)
     cv2.imshow("skindetection"+str(im_id),responses.reshape(np.shape(h)))
 
 cv2.waitKey(0)
