@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 
+#Download files form https://drive.google.com/file/d/1Gii7rvNVkiurytmLwG8HfTRssE2NjVpi/view?usp=sharing
+
 count = 0
 charlist = "ABCDF"
 colorlist = ["red","green","blue","olive","cyan"]
