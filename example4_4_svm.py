@@ -1,12 +1,14 @@
 import numpy as np
 import cv2
 
+#Download files form https://drive.google.com/file/d/1Gii7rvNVkiurytmLwG8HfTRssE2NjVpi/view?usp=sharing
+
 count = 0
 charlist = "ABCDF"
 answerlist = "AAAAABBBBBCCCCCDDDDDFFFFF"
 
-#hog = cv2.HOGDescriptor((50,50),(50,50),(50,50),(50,50),9)
-hog = cv2.HOGDescriptor((50,50),(20,20),(10,10),(10,10),9)
+hog = cv2.HOGDescriptor((50,50),(50,50),(50,50),(50,50),9)
+#hog = cv2.HOGDescriptor((50,50),(20,20),(10,10),(10,10),9)
 #WinSize, BlockSize, BlockStride, CellSize, NBins
 
 label_train = np.zeros((25,1))
