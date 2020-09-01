@@ -31,9 +31,10 @@ for char_id in range(0,5):
 
 svm = cv2.ml.SVM_create()
 svm.setKernel(cv2.ml.SVM_LINEAR)
-#svm.setType(cv2.ml.SVM_C_SVC)
+#svm.setKernel(cv2.ml.SVM_POLY)
 #svm.setDegree(20)
-#svm.setGamma(0.15)
+#svm.setKernel(cv2.ml.SVM_RBF)
+#svm.setGamma(0.5)
 svm.train(features_train.astype(np.float32), cv2.ml.ROW_SAMPLE,label_train.astype(np.int32))
 
 for im_id in range(1,26):
