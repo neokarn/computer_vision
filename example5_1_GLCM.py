@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from skimage.feature import greycomatrix, greycoprops
 from skimage import data
 
+#Example form https://scikit-image.org/docs/dev/auto_examples/features_detection/plot_glcm.html
 
 PATCH_SIZE = 21
 
