@@ -9,15 +9,23 @@ im = cv2.imread("TextureClassification//Beef//1.jpg")
 im_gray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
 cv2.imshow("image",im)
 
-glcm = greycomatrix(im_gray, [5], [0], 256, symmetric=True, normed=True)
-glcm_props = np.zeros(4)
-glcm_props[0] = greycoprops(glcm, 'ASM')
-glcm_props[1] = greycoprops(glcm, 'contrast')
-glcm_props[2] = greycoprops(glcm, 'homogeneity')
-glcm_props[3] = greycoprops(glcm, 'correlation')
-
+#glcm = greycomatrix(im_gray, [5], [0], 256, symmetric=True, normed=True)
+glcm = greycomatrix(im_gray, [5,10,15], [0,90], 256, symmetric=True, normed=True)
+print('GLCM Shape')
 print(glcm.shape)
-print(glcm_props)
+
+print('ASM')
+print(greycoprops(glcm, 'ASM'))
+
+print('contrast')
+print(greycoprops(glcm, 'contrast'))
+
+print('homogeneity')
+print(greycoprops(glcm, 'homogeneity'))
+
+print('correlation')
+print(greycoprops(glcm, 'correlation'))
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
