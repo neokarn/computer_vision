@@ -2,6 +2,8 @@ import numpy as np
 import cv2
 from skimage.feature import greycomatrix, greycoprops
 
+#download images form https://drive.google.com/file/d/1JfJYr-qJvgt1Jyz-Gop-oRci-TipuQmb/view?usp=sharing
+
 
 count = 0
 class_list = ["Beef", "Omelet", "Spaghetti"]
@@ -10,7 +12,7 @@ label_train = np.zeros((15*3,1))
 features_train = np.zeros((15*3,4 * L * 3))
 for class_id in range(0,3):
     for im_id in range(1,16):
-        im = cv2.imread("Texture//"+class_list[class_id]+"//"+str(im_id)+".jpg")
+        im = cv2.imread("TextureClassification//"+class_list[class_id]+"//"+str(im_id)+".jpg")
         im_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
         im_gray = cv2.resize(im_gray, (50, 50))
         im_gray = (im_gray / 16).astype(np.uint8)
@@ -29,7 +31,7 @@ svm.setKernel(cv2.ml.SVM_LINEAR)
 svm.train(features_train.astype(np.float32), cv2.ml.ROW_SAMPLE,label_train.astype(np.int32))
 
 for im_id in range(1,16):
-    im = cv2.imread("Texture//Unknown//" + str(im_id) + ".jpg")
+    im = cv2.imread("TextureClassification//Unknown//" + str(im_id) + ".jpg")
     im_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
     im_gray = cv2.resize(im_gray, (50, 50))
     im_gray = (im_gray / 16).astype(np.uint8)
