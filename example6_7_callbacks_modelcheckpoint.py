@@ -13,11 +13,11 @@ model.add(Dense(3, activation='softmax'))
 
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
-              metrics=['accuracy'])
+              metrics=['acc'])
 
 model.summary()
 
-#Read data from file
+#Read data from file (download at https://github.com/neokarn/computer_vision/blob/master/data.csv)
 data = np.asarray([[float(num) for num in line.split(',')] for line in open('data.csv')])
 
 #Train Model
@@ -36,7 +36,7 @@ checkpoint = ModelCheckpoint('my_model.h5',
                              mode='min')
 
 h = model.fit(x_train, y_train,
-              epochs=1000, batch_size=5,
+              epochs=200, batch_size=5,
               validation_data=(x_val,y_val),
               callbacks=[checkpoint])
 
