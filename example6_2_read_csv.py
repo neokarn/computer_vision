@@ -6,14 +6,14 @@ import numpy as np
 
 #Create model
 input = Input(shape=(5,)) #5 Features
-hidden1 = Dense(5, activation='tanh')(input)
-hidden2 = Dense(5, activation='tanh')(hidden1)
+hidden1 = Dense(10, activation='tanh')(input)
+hidden2 = Dense(10, activation='tanh')(hidden1)
 output = Dense(3, activation='softmax')(hidden2) #Classification (3 classes)
 model = Model(inputs=input, outputs=output)
 
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
-              metrics=['accuracy'])
+              metrics=['acc'])
 
 model.summary()
 
@@ -35,7 +35,7 @@ y_train = to_categorical(y_train)
 print('---------- y_train after to_categorical()----------------------------------')
 print(y_train) #one hot vectors
 
-model.fit(x_train, y_train, epochs=100, batch_size=5)
+model.fit(x_train, y_train, epochs=100, batch_size=5, verbose = 0)
 
 
 #Test Model
