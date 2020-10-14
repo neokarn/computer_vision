@@ -17,7 +17,7 @@ model.compile(optimizer='adam',
 
 model.summary()
 
-#Read data from file
+#Read data from file (download at https://github.com/neokarn/computer_vision/blob/master/data.csv)
 data = np.asarray([[float(num) for num in line.split(',')] for line in open('data.csv')])
 print('---------------- DATA -----------------------------------------')
 print(data)
