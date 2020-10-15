@@ -32,8 +32,9 @@ y_val = to_categorical(y_val)
 #save model
 checkpoint = ModelCheckpoint('my_model.h5',
                              verbose=1,
-                             monitor='val_loss',
-                             mode='min')
+                             monitor='val_acc',
+                             mode='max',
+                             save_best_only = True)
 
 h = model.fit(x_train, y_train,
               epochs=200, batch_size=5,
