@@ -6,8 +6,8 @@ import numpy as np
 
 #Create model by using sequential structure
 model = Sequential()
-model.add(Dense(5, input_dim=5, activation='tanh'))
-model.add(Dense(5, activation='tanh'))
+model.add(Dense(10, input_dim=5, activation='tanh'))
+model.add(Dense(10, activation='tanh'))
 model.add(Dense(3, activation='softmax'))
 
 model.compile(optimizer='adam',
