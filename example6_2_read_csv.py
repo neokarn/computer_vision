@@ -23,7 +23,7 @@ print('---------------- DATA -----------------------------------------')
 print(data)
 
 #Train Model
-x_train = data[0:120,0:5] # First 80 samples for training
+x_train = data[0:120,0:5] # First 120 samples for training
 y_train = data[0:120,5]
 
 print('---------------- x_train -----------------------------------------')
