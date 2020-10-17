@@ -21,12 +21,12 @@ model = Model(inputs=input, outputs=output)
 
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
-              metrics=['accuracy'])
+              metrics=['acc'])
 
 model.summary()
 
 
-#Create generator
+#Create generator (download dataset form https://drive.google.com/file/d/1Re4ededUgebu-vjVjHqjF9efC4xMfEih/view?usp=sharing)
 datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = datagen.flow_from_directory(
@@ -57,7 +57,7 @@ checkpoint = ModelCheckpoint('animalfaces.h5', verbose=1, monitor='val_acc',save
 
 h = model.fit_generator(
     train_generator,
-    epochs=50,
+    epochs=20,
     steps_per_epoch=len(train_generator),
     validation_data=validation_generator,
     validation_steps=len(validation_generator),
@@ -74,7 +74,7 @@ model = load_model('animalfaces.h5')
 score = model.evaluate_generator(
     test_generator,
     steps=len(test_generator))
-print(score)
+print('score (cross_entropy, accuracy):\n',score)
 
 
 
