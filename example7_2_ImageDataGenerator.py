@@ -69,7 +69,7 @@ plt.legend(['train', 'val'])
 plt.show()
 
 
-#Test Model
+#Evaluate Model
 model = load_model('animalfaces.h5')
 score = model.evaluate_generator(
     test_generator,
