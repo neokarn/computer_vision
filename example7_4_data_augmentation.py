@@ -7,22 +7,27 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-BATCH_SIZE = 10
+BATCH_SIZE = 20
 IMAGE_SIZE = (256,256)
 
 #Download dataset form https://drive.google.com/file/d/1jwa16s2nZIQywKMdRkpRvdDifxGDxC3I/view?usp=sharing
 dataframe = pd.read_csv('rice/rice_weights.csv', delimiter=',', header=0)
 
 
+#https://keras.io/api/preprocessing/image/
+#https://machinelearningmastery.com/how-to-configure-image-data-augmentation-when-training-deep-learning-neural-networks/
 datagen = ImageDataGenerator(
             rescale=1./255,
+            brightness_range=[0.9,1.1],
             shear_range=1,
-            zoom_range=0.01,
+            zoom_range=0.05,
             rotation_range=10,
             width_shift_range=0.03,
             height_shift_range=0.03,
             vertical_flip=True,
             horizontal_flip=True)
+
+datagen_noaug = ImageDataGenerator(rescale=1./255)
 
 train_generator = datagen.flow_from_dataframe(
     dataframe=dataframe.loc[0:159],
@@ -33,7 +38,7 @@ train_generator = datagen.flow_from_dataframe(
     batch_size=BATCH_SIZE,
     class_mode='other')
 
-validation_generator = datagen.flow_from_dataframe(
+validation_generator = datagen_noaug.flow_from_dataframe(
     dataframe=dataframe.loc[160:179],
     directory='rice/images',
     x_col='filename',
@@ -43,7 +48,7 @@ validation_generator = datagen.flow_from_dataframe(
     batch_size=BATCH_SIZE,
     class_mode='other')
 
-test_generator = datagen.flow_from_dataframe(
+test_generator = datagen_noaug.flow_from_dataframe(
     dataframe=dataframe.loc[180:199],
     directory='rice/images',
     x_col='filename',
@@ -116,7 +121,7 @@ plot_losses = PlotLosses()
 model.fit_generator(
     train_generator,
     steps_per_epoch= len(train_generator),
-    epochs=20,
+    epochs=60,
     validation_data=validation_generator,
     validation_steps= len(validation_generator),
     callbacks=[checkpoint, plot_losses])
@@ -129,7 +134,10 @@ score = model.evaluate_generator(
     steps=len(test_generator))
 print('score (mse, mae):\n',score)
 
+test_generator.reset()
 predict = model.predict_generator(
     test_generator,
-    steps=len(test_generator))
+    steps=len(test_generator),
+    workers = 1,
+    use_multiprocessing=False)
 print('prediction:\n',predict)
