@@ -7,7 +7,6 @@ from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 IM_SIZE = 64
 
 #Create model
@@ -71,6 +70,8 @@ h = model.fit_generator(
 plt.plot(h.history['acc'])
 plt.plot(h.history['val_acc'])
 plt.legend(['train', 'val'])
+
+
 
 #Test Model
 model = load_model('animalfaces.h5')
