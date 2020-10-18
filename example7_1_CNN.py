@@ -1,6 +1,7 @@
 from keras.models import Model
 from keras.layers import Input, Dense, Conv2D, MaxPool2D, Flatten
 from keras.utils import to_categorical
+from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import numpy as np
 import cv2
@@ -42,7 +43,6 @@ y_train = to_categorical(y_train)
 h = model.fit(x_train, y_train, epochs=20)
 
 plt.plot(h.history['acc'])
-plt.show()
 
 #Test Model
 N = 15
@@ -64,6 +64,9 @@ print('score (cross_entropy, accuracy):\n',score)
 
 y_pred = model.predict(x_test)
 print('confidence:\n', y_pred)
-print('predicted class:\n', np.argmax(y_pred,axis = -1)+1)
+print('predicted class name:\n', np.argmax(y_pred,axis = -1)+1)
 
+cm = confusion_matrix(np.argmax(y_test,axis = -1), np.argmax(y_pred,axis = -1))
+print("Confusion Matrix:\n",cm)
 
+plt.show()
