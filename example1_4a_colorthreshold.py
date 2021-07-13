@@ -15,7 +15,7 @@ while(True):
 
     #print(np.sum(mask/255))
 
-    if(np.sum(mask/255) > 100000):
+    if(np.sum(mask/255) > 10000):
         cv2.putText(im_flipped,'Coke',(50,100),cv2.FONT_HERSHEY_PLAIN,5,(255,255,255))
 
     cv2.imshow('camera', im_flipped)
