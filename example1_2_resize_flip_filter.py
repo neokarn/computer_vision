@@ -1,17 +1,22 @@
 import cv2
 import numpy as np
 
-CAP_SIZE = (1280,720)
-#TARGET_SIZE = (640,360)
 
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, CAP_SIZE[0])
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, CAP_SIZE[1])
+
+#CAP_SIZE = (1280,720)
+#cap.set(cv2.CAP_PROP_FRAME_WIDTH, CAP_SIZE[0])
+#cap.set(cv2.CAP_PROP_FRAME_HEIGHT, CAP_SIZE[1])
+
+TARGET_SIZE = (360,240)
 
 while(True):
-    ret,im = cap.read()    
+    ret,im = cap.read()
+
+    ############ Resizing ############################
     #im_resized = cv2.resize(im,TARGET_SIZE)
     #print(im_resized.shape)
+    ##################################################
 
     ############ Flipping ############################
     #im_flipped = cv2.flip(im_resized,1)
