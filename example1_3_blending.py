@@ -23,8 +23,7 @@ while(True):
     else:
         im0 = im1 = im2 = im3 = im_flipped = cv2.flip(im_resized, 1)
         cv2.imshow('camera',im_flipped)
-
-    count = count+1
+        count = count + 1
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
