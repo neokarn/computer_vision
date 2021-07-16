@@ -27,8 +27,13 @@ while(True):
     #kernel = np.ones((L, L), np.float32) / L / L
     #im_blurred = cv2.filter2D(im_flipped, -1, kernel)
     ##################################################
+    
+    ############ Median Filter #######################
+    #L = 25
+    #im_median = cv2.medianBlur(im_flipped, L)
+    ##################################################
 
-    cv2.imshow('camera', im)#######################################
+    cv2.imshow('camera', im) ################## You may change image for displaying #############
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
