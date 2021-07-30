@@ -11,10 +11,11 @@ im_hsv = cv2.cvtColor(im,cv2.COLOR_BGR2HSV)
 h = im_hsv[:,:,0]
 s = im_hsv[:,:,1]
 
-h_skin = [val for (i,val) in enumerate(h.reshape(1,-1)[0]) if mask.reshape(1,-1)[0][i] >= 128]
-s_skin = [val for (i,val) in enumerate(s.reshape(1,-1)[0]) if mask.reshape(1,-1)[0][i] >= 128]
-h_nonskin = [val for (i,val) in enumerate(h.reshape(1,-1)[0]) if mask.reshape(1,-1)[0][i] < 128]
-s_nonskin = [val for (i,val) in enumerate(s.reshape(1,-1)[0]) if mask.reshape(1,-1)[0][i] < 128]
+h_skin = h[mask >= 128]
+s_skin = s[mask >= 128]
+h_nonskin = h[mask < 128]
+s_nonskin = s[mask < 128]
+
 
 cv2.imshow('image',im)
 cv2.imshow('mask',mask)
