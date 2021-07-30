@@ -4,8 +4,8 @@ from matplotlib import pyplot as plt
 
 #Download files from https://drive.google.com/file/d/1XdZLvORnCnfpyBYflh15I58VQrQdVlUe/view?usp=sharing
 
-im = cv2.imread("SkinTrain1.jpg")
-mask = cv2.imread("SkinTrain1_mask.jpg",0)
+im = cv2.imread("SkinDetection\SkinTrain1.jpg")
+mask = cv2.imread("SkinDetection\SkinTrain1_mask.jpg",0)
 
 im_hsv = cv2.cvtColor(im,cv2.COLOR_BGR2HSV)
 h = im_hsv[:,:,0]
