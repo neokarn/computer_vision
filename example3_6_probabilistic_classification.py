@@ -9,8 +9,8 @@ s_skin_hist = 0
 s_nonskin_hist = 0
 for im_id in range(1,4):
     print(im_id)
-    im = cv2.imread("SkinTrain"+str(im_id)+".jpg")
-    mask = cv2.imread("SkinTrain"+str(im_id)+"_mask.jpg",0)
+    im = cv2.imread("SkinDetection\SkinTrain"+str(im_id)+".jpg")
+    mask = cv2.imread("SkinDetection\SkinTrain"+str(im_id)+"_mask.jpg",0)
     im_hsv = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
     h_skin_hist = h_skin_hist+cv2.calcHist([im_hsv], [0], mask, [256], [0, 256])
     h_nonskin_hist = h_nonskin_hist+cv2.calcHist([im_hsv], [0], 255-mask, [256], [0, 256])
@@ -26,7 +26,7 @@ nonskin_prob = 1-skin_prob
 
 
 for im_id in range(1,6):
-    im = cv2.imread("SkinTest"+str(im_id)+".jpg")
+    im = cv2.imread("SkinDetection\SkinTest"+str(im_id)+".jpg")
 
     im_hsv = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
 
