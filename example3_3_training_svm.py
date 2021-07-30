@@ -44,7 +44,7 @@ print("features's shape: ", features.shape)
 
 svm = cv2.ml.SVM_create()
 svm.setKernel(cv2.ml.SVM_LINEAR)
-svm.setKernel(cv2.ml.SVM_POLY)
+#svm.setKernel(cv2.ml.SVM_POLY)
 #svm.setDegree(10)
 #svm.setKernel(cv2.ml.SVM_RBF)
 #svm.setGamma(0.01)
