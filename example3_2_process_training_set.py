@@ -6,8 +6,8 @@ from matplotlib import pyplot as plt
 
 for im_id in range(1, 4):
     print(im_id)
-    im = cv2.imread("SkinTrain" + str(im_id) + ".jpg")
-    mask = cv2.imread("SkinTrain" + str(im_id) + "_mask.jpg", 0)
+    im = cv2.imread("SkinDetection\SkinTrain" + str(im_id) + ".jpg")
+    mask = cv2.imread("SkinDetection\SkinTrain" + str(im_id) + "_mask.jpg", 0)
 
     im_hsv = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
     h = im_hsv[:, :, 0]
