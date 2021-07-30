@@ -45,7 +45,7 @@ print("features's shape: ", features.shape)
 svm = cv2.ml.SVM_create()
 svm.setKernel(cv2.ml.SVM_LINEAR)
 #svm.setKernel(cv2.ml.SVM_POLY)
-#svm.setDegree(2)
+#svm.setDegree(10)
 svm.train(features.astype(np.float32), cv2.ml.ROW_SAMPLE, labels.astype(np.int32))
 
 print('-----------------Classify any (h,s) value ---------------------')
