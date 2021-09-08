@@ -12,7 +12,7 @@ model.add(Dense(3, activation='softmax'))
 
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
-              metrics=['acc'])
+              metrics=['accuracy'])
 
 model.summary()
 
@@ -32,8 +32,8 @@ h = model.fit(x_train, y_train,
           epochs=200, batch_size=5,
           validation_data=(x_val,y_val))
 
-plt.plot(h.history['acc'])
-plt.plot(h.history['val_acc'])
+plt.plot(h.history['accuracy'])
+plt.plot(h.history['val_accuracy'])
 plt.legend(['train', 'val'])
 
 #save model 
