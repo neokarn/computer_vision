@@ -13,7 +13,7 @@ model = Model(inputs=input, outputs=output)
 
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
-              metrics=['acc'])
+              metrics=['accuracy'])
 
 model.summary()
 
