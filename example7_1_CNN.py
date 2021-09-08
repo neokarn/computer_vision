@@ -19,7 +19,7 @@ model = Model(inputs=input, outputs=output)
 
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
-              metrics=['acc'])
+              metrics=['accuracy'])
 
 model.summary()
 
@@ -42,7 +42,7 @@ y_train = to_categorical(y_train)
 #Train Model
 h = model.fit(x_train, y_train, epochs=20)
 
-plt.plot(h.history['acc'])
+plt.plot(h.history['accuracy'])
 
 #Test Model
 N = 15
