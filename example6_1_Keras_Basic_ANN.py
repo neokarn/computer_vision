@@ -10,7 +10,7 @@ model = Model(inputs=input, outputs=output)
 
 model.compile(optimizer='sgd',
               loss='binary_crossentropy',
-              metrics=['acc'])
+              metrics=['accuracy'])
 
 model.summary()
 
