@@ -13,7 +13,7 @@ model.add(Dense(3, activation='softmax'))
 
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
-              metrics=['acc'])
+              metrics=['accuracy'])
 
 model.summary()
 
@@ -32,7 +32,7 @@ y_val = to_categorical(y_val)
 #save model
 checkpoint = ModelCheckpoint('my_model.h5',
                              verbose=1,
-                             monitor='val_acc',
+                             monitor='val_accuracy',
                              mode='max',
                              save_best_only = True)
 
@@ -41,8 +41,8 @@ h = model.fit(x_train, y_train,
               validation_data=(x_val,y_val),
               callbacks=[checkpoint])
 
-plt.plot(h.history['acc'])
-plt.plot(h.history['val_acc'])
+plt.plot(h.history['accuracy'])
+plt.plot(h.history['val_accuracy'])
 plt.legend(['train', 'val'])
 
 
