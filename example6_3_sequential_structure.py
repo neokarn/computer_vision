@@ -12,7 +12,7 @@ model.add(Dense(3, activation='softmax'))
 
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
-              metrics=['acc'])
+              metrics=['accuracy'])
 
 model.summary()
 
