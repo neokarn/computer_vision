@@ -22,7 +22,7 @@ model = Model(inputs=input, outputs=output)
 
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
-              metrics=['acc'])
+              metrics=['accuracy'])
 
 model.summary()
 
@@ -57,7 +57,7 @@ test_generator = datagen.flow_from_directory(
 
 
 #Train Model
-checkpoint = ModelCheckpoint('animalfaces.h5', verbose=1, monitor='val_acc',save_best_only=True, mode='max')
+checkpoint = ModelCheckpoint('animalfaces.h5', verbose=1, monitor='val_accuracy',save_best_only=True, mode='max')
 
 h = model.fit_generator(
     train_generator,
@@ -67,8 +67,8 @@ h = model.fit_generator(
     validation_steps=len(validation_generator),
     callbacks=[checkpoint])
 
-plt.plot(h.history['acc'])
-plt.plot(h.history['val_acc'])
+plt.plot(h.history['accuracy'])
+plt.plot(h.history['val_accuracy'])
 plt.legend(['train', 'val'])
 
 
