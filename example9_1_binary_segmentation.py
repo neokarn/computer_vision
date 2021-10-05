@@ -62,7 +62,7 @@ def myGenerator(type):
         out_batch = expected_output_generator.next()
         yield in_batch, out_batch
 
-checkpoint = ModelCheckpoint('my_model.h5', verbose=1, monitor='val_acc',save_best_only=True, mode='max')
+checkpoint = ModelCheckpoint('my_model.h5', verbose=1, monitor='val_accuracy',save_best_only=True, mode='max')
 
 h = model.fit_generator(myGenerator('train'),
                         steps_per_epoch=TRAIN_IM/BATCH_SIZE,
