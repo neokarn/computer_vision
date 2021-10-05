@@ -71,6 +71,6 @@ h = model.fit_generator(myGenerator('train'),
                         validation_steps=VALIDATE_IM/BATCH_SIZE,
                         callbacks=[checkpoint])
 
-plt.plot(h.history['acc'])
-plt.plot(h.history['val_acc'])
+plt.plot(h.history['accuracy'])
+plt.plot(h.history['val_accuracy'])
 plt.show()
