@@ -11,7 +11,10 @@ ret,im = cap.read()
 
 #print(im.shape)
 #print(type(im))
+#print(im[0,0])
+#print(im[0,0,0])
+#print(type(im[0,0,0]))
 
-cv2.imshow('camera',im) 
+cv2.imshow('camera',im)
 cv2.waitKey()
 cap.release()
