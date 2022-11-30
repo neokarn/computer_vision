@@ -16,5 +16,8 @@ ret,im = cap.read()
 #print(type(im[0,0,0]))
 
 cv2.imshow('camera',im)
+#cv2.imshow('blue channel',im[:,:,0])
+#cv2.imshow('green channel',im[:,:,1])
+#cv2.imshow('red channel',im[:,:,2])
 cv2.waitKey()
 cap.release()
