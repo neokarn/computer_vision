@@ -2,20 +2,17 @@ import cv2
 import numpy as np
 
 
+import numpy as np
+
 cap = cv2.VideoCapture(0)
-
-#CAP_SIZE = (1280,720)
-#cap.set(cv2.CAP_PROP_FRAME_WIDTH, CAP_SIZE[0])
-#cap.set(cv2.CAP_PROP_FRAME_HEIGHT, CAP_SIZE[1])
-
-TARGET_SIZE = (360,240)
 
 while(True):
     ret,im = cap.read()
 
     ############ Resizing ############################
-    #im_resized = cv2.resize(im,TARGET_SIZE)
-    #print(im_resized.shape)
+    TARGET_SIZE = (360,240)
+    im_resized = cv2.resize(im,TARGET_SIZE)
+    print(im_resized.shape)
     ##################################################
 
     ############ Flipping ############################
@@ -33,7 +30,8 @@ while(True):
     #im_median = cv2.medianBlur(im_flipped, L)
     ##################################################
 
-    cv2.imshow('camera', im) ################## You may change image for displaying #############
+    cv2.imshow('original', im)
+    cv2.imshow('modified', im_median) # Change variable name for displaying another images 
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
