@@ -31,7 +31,7 @@ while(True):
     ##################################################
 
     cv2.imshow('original', im)
-    cv2.imshow('modified', im_median) # Change variable name for displaying another images 
+    cv2.imshow('modified', im_resized) # Change variable name for displaying another images 
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
