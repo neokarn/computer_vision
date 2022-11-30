@@ -1,8 +1,6 @@
 import numpy as np
 import cv2
 
-TARGET_SIZE = (640,360)
-
 cap = cv2.VideoCapture(0)
 
 L = 10
@@ -10,7 +8,7 @@ L = 10
 im_list = []
 while(True):
     ret,im = cap.read()
-    im_resized = cv2.resize(im, TARGET_SIZE)
+    im_resized = cv2.resize(im, (640,360))
     im_flipped = cv2.flip(im_resized, 1).astype(np.float)
 
     if len(im_list) == L:
