@@ -23,7 +23,7 @@ print('Length of contours:', len(contours))
 n = 0
 print('Types of each contour:', type(contours[n]))
 print('Shape of each contour:', contours[n].shape)
-print('Each contour:\n',contours[n])
+print('Each contour value (list of points):\n',contours[n])
 
 out = np.zeros(shape =(400,400)).astype('uint8')
 for pos in contours[n]:
