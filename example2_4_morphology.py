@@ -36,11 +36,15 @@ while(cap.isOpened()):
     cv2.imshow('bwmask', bwmask)
     cv2.moveWindow('bwmask',10,10)
     cv2.imshow('bwmask_median', bwmask_median)
-    cv2.moveWindow('bwmask_median', 400, 10)
+    cv2.moveWindow('bwmask_median', 380, 10)
+    cv2.imshow('bwmask_close', bwmask_close)
+    cv2.moveWindow('bwmask_close', 750, 10)
     cv2.imshow('im_out_contour', im_out_contour)
     cv2.moveWindow('im_out_contour', 10, 350)
     cv2.imshow('im_out_boundingbox', im_out_boundingbox)
-    cv2.moveWindow('im_out_boundingbox', 400, 350)
+    cv2.moveWindow('im_out_boundingbox', 380, 350)
+
+    #cv2.waitKey()
 
 cap.release()
 cv2.destroyAllWindows()
