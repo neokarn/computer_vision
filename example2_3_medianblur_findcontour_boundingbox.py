@@ -39,6 +39,8 @@ while(cap.isOpened()):
     cv2.moveWindow('im_out_contour', 10, 350)
     cv2.imshow('im_out_boundingbox', im_out_boundingbox)
     cv2.moveWindow('im_out_boundingbox', 400, 350)
+    
+    #cv2.waitKey()
 
 
 cap.release()
