@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 
+#Please install sckit-image (pip install scikit-image)
 from skimage.feature import greycomatrix, greycoprops
 from skimage import data
 
