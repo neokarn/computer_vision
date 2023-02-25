@@ -1,3 +1,6 @@
+#For Google Colab Version
+#https://colab.research.google.com/drive/1oz8shKHjbXwDdqui_GtvQKvmT3vesTZW?usp=share_link
+
 from keras.models import Sequential
 from keras.layers import Input, Dense
 from keras.utils import to_categorical
