@@ -1,3 +1,6 @@
+#For Goole Colab Version
+#https://colab.research.google.com/drive/138XnTYRSe4HIg_XELX-RixCVHuxDQHao?usp=share_link
+
 from keras.models import Model, load_model
 from keras.layers import Dense, Flatten, Input
 from keras.layers import Conv2D, MaxPool2D
