@@ -1,3 +1,6 @@
+#For Goole Colab Version
+#https://colab.research.google.com/drive/1pwjr6jCgLnrlWSfBcDF-IakPlsrM_VxW?usp=share_link
+
 from keras.models import Model, load_model
 from keras.layers import Dense, Dropout, Flatten, Input, BatchNormalization, Conv2D, MaxPool2D
 from keras.optimizers import Adam
