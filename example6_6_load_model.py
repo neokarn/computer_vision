@@ -1,3 +1,6 @@
+#For Google Colab Version
+#https://colab.research.google.com/drive/1LK-1OMH25pNOpYi11HXuBBHWXL1rx_og?usp=share_link
+
 from keras.models import load_model
 from sklearn.metrics import confusion_matrix
 import numpy as np
