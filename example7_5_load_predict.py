@@ -1,3 +1,6 @@
+#For Goole Colab Version
+#https://colab.research.google.com/drive/1N-Rt1aVclWyZWcjPG-UZxqmKmOleDTOo?usp=share_link
+
 from keras.models import Model, load_model
 from keras.preprocessing.image import ImageDataGenerator
 import pandas as pd
