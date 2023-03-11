@@ -2,25 +2,29 @@ import numpy as np
 import cv2
 
 cap = cv2.VideoCapture(0)
-orb = cv2.ORB_create()
-bf = cv2.BFMatcher(cv2.NORM_HAMMING)
 
-ref = cv2.imread('onepiece73.jpg', cv2.COLOR_BGR2GRAY)
+detector = cv2.SIFT_create()
+matcher = cv2.BFMatcher()
+
+#detector = cv2.ORB_create()
+#matcher = cv2.BFMatcher(cv2.NORM_HAMMING)
+
+ref = cv2.imread('conan1.jpg', cv2.COLOR_BGR2GRAY)
 h,w,_ = ref.shape
-ref = cv2.resize(ref,(int(w*0.7),int(h*0.7)))
+ref = cv2.resize(ref,(int(w*1.0),int(h*1.0)))
 
-kp1, des1 = orb.detectAndCompute(ref, None)
+kp1, des1 = detector.detectAndCompute(ref, None)
 
 while(True):
     _,target = cap.read()
 
-    kp2, des2 = orb.detectAndCompute(target, None)
+    kp2, des2 = detector.detectAndCompute(target, None)
 
-    matches = bf.knnMatch(des1, des2, k=2)
+    matches = matcher.knnMatch(des1, des2, k=2) #Relative Matching
 
     good = []
     for m, n in matches:
-        if m.distance < 0.5 * n.distance:
+        if m.distance < 0.6 * n.distance:
             good.append(m)
 
     result = cv2.drawMatches(ref, kp1, target, kp2, good, None, flags=2)
