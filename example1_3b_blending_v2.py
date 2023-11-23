@@ -9,7 +9,7 @@ im_list = []
 while(True):
     ret,im = cap.read()
     im_resized = cv2.resize(im, (640,360))
-    im_flipped = cv2.flip(im_resized, 1).astype(np.float)
+    im_flipped = cv2.flip(im_resized, 1).astype('float')
 
     if len(im_list) == L:
         im_list = im_list[1:]
