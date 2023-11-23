@@ -1,3 +1,6 @@
+import numpy as np
+import cv2
+
 TARGET_SIZE = (640,360)
 
 cap = cv2.VideoCapture(0)
