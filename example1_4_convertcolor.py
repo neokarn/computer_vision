@@ -1,3 +1,5 @@
+import cv2
+
 cap = cv2.VideoCapture(0)
 
 TARGET_SIZE = (640,360)
