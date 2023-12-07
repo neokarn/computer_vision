@@ -1,6 +1,6 @@
 #Download images from https://drive.google.com/file/d/1KqllafwQiJR-Ronos3N-AHNfnoBb8I7H/view?usp=sharing
 
-#Bonus from this challenge https://docs.google.com/document/d/1q96VgmpJXlC95h9we-jiuxonEoYrZoqgTD2wjGk5TlI/edit?usp=sharing
+#Bonus from this challenge https://o365cmu.sharepoint.com/:w:/s/653b7399b63c1ebefb950d5a/EdfX_SNaTClPlLPk5GihI-wBOJRgGQhW1L8XveIYXBJdwQ?e=V1cJ8A
 
 import cv2
 
