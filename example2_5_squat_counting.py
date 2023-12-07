@@ -1,7 +1,6 @@
 #Download videos from https://drive.google.com/file/d/1TNwCB5o3-joGgclbXkI01f2r4FazMf-w/view?usp=sharing
 
-#Bonus from this challenge https://docs.google.com/document/d/1TAnukC7UeePYEkio558SCoEZNHJm2d_oDCHB9qzaCSM/edit?usp=sharing
-
+#Bonus from this challenge https://o365cmu.sharepoint.com/:w:/s/653b7399b63c1ebefb950d5a/EfH9boqlKy9NgEHLbwSTYkwBg6lnAHRdrzDHaixMYBtPsQ?e=0U7dam
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
