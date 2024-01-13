@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 #Please install sckit-image (pip install scikit-image)
-from skimage.feature import greycomatrix, greycoprops
+from skimage.feature import graycomatrix, graycoprops
 from skimage import data
 
 #Example form https://scikit-image.org/docs/dev/auto_examples/features_detection/plot_glcm.html
@@ -29,9 +29,9 @@ for loc in sky_locations:
 xs = []
 ys = []
 for patch in (grass_patches + sky_patches):
-    glcm = greycomatrix(patch, [5], [0], 256, symmetric=True, normed=True)
-    xs.append(greycoprops(glcm, 'contrast')[0, 0])
-    ys.append(greycoprops(glcm, 'correlation')[0, 0])
+    glcm = graycomatrix(patch, [5], [0], 256, symmetric=True, normed=True)
+    xs.append(graycoprops(glcm, 'contrast')[0, 0])
+    ys.append(graycoprops(glcm, 'correlation')[0, 0])
 
 # create the figure
 fig = plt.figure(figsize=(8, 8))
