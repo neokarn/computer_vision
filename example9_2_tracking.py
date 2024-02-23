@@ -11,9 +11,9 @@ p0 = cv2.goodFeaturesToTrack(prvs,
                              maxCorners=ptmax,
                              qualityLevel=0.01,
                              minDistance=5,
-                             blockSize=7)
+                             blockSize=9)
 
-line = np.zeros_like(frame)
+line = np.zeros_like(frame).astype('uint8')
 color = np.random.randint(0,255,(ptmax,3))
 
 while(1):
@@ -33,8 +33,11 @@ while(1):
     good_old = p0[st==1]
 
     for i in range(0,len(good_new)):
-        line = cv2.line(line, (good_new[i,0],good_new[i,1]), (good_old[i,0],good_old[i,1]), color[i].tolist(), 2)
-        frame = cv2.circle(frame, (good_new[i,0],good_new[i,1]), 5, color[i].tolist(), -1)
+        try:
+            line = cv2.line(line, (int(good_new[i,0]),int(good_new[i,1])), (int(good_old[i,0]),int(good_old[i,1])), color[i].tolist(), 2)
+            frame = cv2.circle(frame, (int(good_new[i,0]),int(good_new[i,1])), 5, color[i].tolist(), -1)
+        except:
+            pass
 
     cv2.imshow('result',cv2.add(frame,line))
     if cv2.waitKey(1) & 0xFF == ord('q'):
