@@ -1,16 +1,16 @@
 import cv2
 
-# For more info:
-# https://www.learnopencv.com/object-tracking-using-opencv-cpp-python/
+tracker = cv2.legacy.TrackerTLD_create()
+#tracker = cv2.legacy.TrackerMedianFlow_create()
+#tracker = cv2.TrackerKCF_create()
+#tracker = cv2.TrackerCSRT_create()
 
-tracker = cv2.Tracker_create('MEDIANFLOW') #TLD MEDIANFLOW
-#tracker = cv2.TrackerTLD_create()
-#tracker = cv2.TrackerMedianFlow_create()
 cap = cv2.VideoCapture(0)
 _, frame = cap.read()
 frame = cv2.flip(frame,1)
-bbox = cv2.selectROI(frame, False)
-tracker.init(frame, bbox)
+bbox = cv2.selectROI("Tracking",frame, False)
+tracker.init(frame,bbox)
+
 
 while(1):
     _, frame = cap.read()
