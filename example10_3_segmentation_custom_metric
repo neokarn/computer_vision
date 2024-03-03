@@ -5,6 +5,7 @@ from keras.callbacks import ModelCheckpoint
 from keras import backend as K
 import matplotlib.pyplot as plt
 
+#Colab Version: https://colab.research.google.com/drive/1N4SrDU8hDiL6XTCCwqokWZagKvEy3n1m?usp=sharing
 
 BATCH_SIZE = 5
 MAX_EPOCH = 20
