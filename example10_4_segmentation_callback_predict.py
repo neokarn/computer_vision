@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 
+#Colab Version: https://colab.research.google.com/drive/18PavwQ7KhKMutc_vODAVgE-vDXbPiS7H?usp=sharing
+
 BATCH_SIZE = 5
 MAX_EPOCH = 100
 IMAGE_SIZE = (256,256)
