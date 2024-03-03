@@ -2,6 +2,8 @@ from keras.models import load_model
 import cv2
 import numpy as np
 
+#Colab Version: https://colab.research.google.com/drive/1994MoQLb_weGwOtCBpbTosSvPUmnM0Tt?usp=sharing
+
 IMAGE_SIZE = (256,256)
 
 model = load_model('my_model.h5')
