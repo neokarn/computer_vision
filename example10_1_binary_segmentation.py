@@ -4,7 +4,9 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint
 import matplotlib.pyplot as plt
 
+#Colab Version: https://colab.research.google.com/drive/1uhTC-qslMw2J8XBqAIZa9UWvKc9rEYk3?usp=sharing
 #Download dataset from https://drive.google.com/open?id=1wWuxCQJEOQX980LuwSjTBM-EzbOJQtJy
+
 
 BATCH_SIZE = 5
 MAX_EPOCH = 30
