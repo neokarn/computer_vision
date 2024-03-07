@@ -40,7 +40,8 @@ def myGenerator(type):
     datagen = ImageDataGenerator(rescale=1./255)
 
     input_generator = datagen.flow_from_directory(
-        'textlocalize/'+type,
+        '/gdrive/MyDrive/textlocalize/'+type,
+        classes = ['Input'],
         class_mode=None,
         color_mode='rgb',
         target_size=IMAGE_SIZE,
@@ -49,7 +50,8 @@ def myGenerator(type):
         seed = 1)
 
     expected_output_generator = datagen.flow_from_directory(
-        'textlocalize/'+type,
+        '/gdrive/MyDrive/textlocalize/'+type,
+        classes = ['Output'],
         class_mode=None,
         color_mode='grayscale',
         target_size=IMAGE_SIZE,
