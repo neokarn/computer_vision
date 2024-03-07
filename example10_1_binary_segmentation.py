@@ -41,7 +41,6 @@ def myGenerator(type):
 
     input_generator = datagen.flow_from_directory(
         'textlocalize/'+type,
-        classes = ['Input'],
         class_mode=None,
         color_mode='rgb',
         target_size=IMAGE_SIZE,
@@ -51,7 +50,6 @@ def myGenerator(type):
 
     expected_output_generator = datagen.flow_from_directory(
         'textlocalize/'+type,
-        classes = ['Output'],
         class_mode=None,
         color_mode='grayscale',
         target_size=IMAGE_SIZE,
