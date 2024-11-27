@@ -17,7 +17,11 @@ while(True):
     #print(np.sum(mask/255))
 
     if(np.sum(mask/255) > 10000):
-        cv2.putText(im_flipped,'Coke',(50,100),cv2.FONT_HERSHEY_PLAIN,5,(255,255,255))
+        cv2.putText(im_flipped,'Coke',(50,100),
+                    fontFace = cv2.FONT_HERSHEY_PLAIN,
+                    fontScale = 5,
+                    thickness = 3,
+                    color = (0,0,255))         
 
     cv2.imshow('camera', im_flipped)
     cv2.moveWindow('camera',0,0)
