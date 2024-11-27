@@ -11,10 +11,10 @@ while(True):
 
     im_gray = cv2.cvtColor(im_flipped,cv2.COLOR_BGR2GRAY)
     im_hsv = cv2.cvtColor(im_flipped, cv2.COLOR_BGR2HSV)
-    hue = im_hsv[:,:,0]
+    hue = im_hsv[:,:,0] #uint8 0-179
     hue = cv2.applyColorMap((hue*(255/179)).astype('uint8'),cv2.COLORMAP_HSV)
-    sat = im_hsv[:,:,1]
-    val = im_hsv[:,:,2]
+    sat = im_hsv[:,:,1] #uint8 0-255
+    val = im_hsv[:,:,2] #uint8 0-255
 
     cv2.imshow('Gray', im_gray)
     cv2.moveWindow('Gray',0,0)
