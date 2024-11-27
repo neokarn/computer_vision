@@ -3,7 +3,7 @@ import cv2
 
 cap = cv2.VideoCapture(0)
 
-L = 10
+L = 5
 
 im_list = []
 while(True):
