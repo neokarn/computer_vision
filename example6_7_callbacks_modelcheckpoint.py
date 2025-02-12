@@ -1,12 +1,15 @@
 #For Google Colab Version
 #https://colab.research.google.com/drive/16AEiFXiU6ipa5WEL6B2YwVfycrV48-mp?usp=share_link
 
-from keras.models import Sequential
-from keras.layers import Input, Dense
-from keras.utils import to_categorical
-from keras.callbacks import ModelCheckpoint
+from tensorflow.keras import Input
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.callbacks import ModelCheckpoint
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+
 
 #Create model by using sequential structure
 model = Sequential()
@@ -21,7 +24,9 @@ model.compile(optimizer='adam',
 model.summary()
 
 #Read data from file (download at https://github.com/neokarn/computer_vision/blob/master/data.csv)
-data = np.asarray([[float(num) for num in line.split(',')] for line in open('data.csv')])
+#data = np.asarray([[float(num) for num in line.split(',')] for line in open('https://github.com/neokarn/computer_vision/blob/master/data.csv')])
+data = pd.read_csv('https://raw.githubusercontent.com/neokarn/computer_vision/53a504e70033f8addfbf4e019f7d89195ac8a101/data.csv',header=None)
+data = np.array(data)
 
 #Train Model
 x_train = data[0:100,0:5]
