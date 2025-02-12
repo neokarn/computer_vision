@@ -1,12 +1,13 @@
 #For Google Colab Version
 #https://colab.research.google.com/drive/1h9_Zk9fwiALL8Qah9JP-Ukm3D8E-zjCn?usp=share_link
 
-from keras.models import Sequential
-from keras.layers import Input, Dense
-from keras.utils import to_categorical
+from tensorflow.keras import Input
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.utils import to_categorical
 from sklearn.metrics import confusion_matrix
-import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 #Create model by using sequential structure
 model = Sequential()
@@ -21,7 +22,8 @@ model.compile(optimizer='adam',
 model.summary()
 
 #Read data from file (download at https://github.com/neokarn/computer_vision/blob/master/data.csv)
-data = np.asarray([[float(num) for num in line.split(',')] for line in open('data.csv')])
+#data = np.asarray([[float(num) for num in line.split(',')] for line in open('data.csv')])
+data = pd.read_csv('https://raw.githubusercontent.com/neokarn/computer_vision/53a504e70033f8addfbf4e019f7d89195ac8a101/data.csv',header=None)
 
 #Train Model
 x_train = data[0:100,0:5]
