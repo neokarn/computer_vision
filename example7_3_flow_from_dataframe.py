@@ -128,7 +128,5 @@ print('score (mse, mae):\n',score)
 test_generator.reset()
 predict = model.predict_generator(
     test_generator,
-    steps=len(test_generator),
-    workers = 1,
-    use_multiprocessing=False)
+    steps=len(test_generator))
 print('prediction:\n',predict)
