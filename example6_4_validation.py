@@ -23,8 +23,9 @@ model.compile(optimizer='adam',
 model.summary()
 
 #Read data from file (download at https://github.com/neokarn/computer_vision/blob/master/data.csv)
-#data = np.asarray([[float(num) for num in line.split(',')] for line in open('data.csv')])
+#data = np.asarray([[float(num) for num in line.split(',')] for line in open('https://github.com/neokarn/computer_vision/blob/master/data.csv')])
 data = pd.read_csv('https://raw.githubusercontent.com/neokarn/computer_vision/53a504e70033f8addfbf4e019f7d89195ac8a101/data.csv',header=None)
+data = np.array(data)
 
 #Train Model
 x_train = data[0:100,0:5]
