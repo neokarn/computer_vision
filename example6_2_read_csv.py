@@ -1,8 +1,8 @@
 #For Google Colab Version
 #https://colab.research.google.com/drive/1oa7O7wuiwN4Oae58hk46yhnju2jG7_Ks?usp=share_link
 
-from keras.models import Model
-from keras.layers import Input, Dense
+from keras import Model, Input
+from keras.layers import Dense
 from keras.utils import to_categorical
 from sklearn.metrics import confusion_matrix
 import numpy as np
