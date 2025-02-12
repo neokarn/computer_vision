@@ -1,9 +1,7 @@
 #For Goole Colab Version
 #https://colab.research.google.com/drive/1N-Rt1aVclWyZWcjPG-UZxqmKmOleDTOo?usp=share_link
 
-from keras.models import Model, load_model
-from keras.preprocessing.image import ImageDataGenerator
-import pandas as pd
+from tensorflow.keras.models import load_model
 import numpy as np
 import cv2
 
@@ -11,36 +9,9 @@ import cv2
 BATCH_SIZE = 5
 IMAGE_SIZE = (256,256)
 
-#Download dataset form https://drive.google.com/file/d/1jwa16s2nZIQywKMdRkpRvdDifxGDxC3I/view?usp=sharing
-dataframe = pd.read_csv('rice/rice_weights.csv', delimiter=',', header=0)
+#Download dataset form https://drive.google.com/drive/folders/1bbTkgKpQca87S8K_dNoKu2hEPoEqzzDG?usp=sharing
 
-datagen_noaug = ImageDataGenerator(rescale=1./255)
-
-test_generator = datagen_noaug.flow_from_dataframe(
-    dataframe=dataframe.loc[180:199],
-    directory='rice/images',
-    x_col='filename',
-    y_col='norm_weight',
-    shuffle=False,
-    target_size=IMAGE_SIZE,
-    batch_size=BATCH_SIZE,
-    class_mode='other')
-
-model = load_model('rice_best.h5')
-score = model.evaluate_generator(
-    test_generator,
-    steps=len(test_generator))
-print('score (mse, mae):\n',score)
-
-
-test_generator.reset()
-predict = model.predict_generator(
-    test_generator,
-    steps=len(test_generator),
-    workers = 1,
-    use_multiprocessing=False)
-print('prediction:\n',predict)
-
+model = load_model('rice_best.keras')
 
 imgfile = 'rice/images/001_t.bmp'
 test_im = cv2.imread(imgfile, cv2.IMREAD_COLOR)
