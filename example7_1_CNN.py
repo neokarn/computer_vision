@@ -1,9 +1,9 @@
 #For Goole Colab Version
 #https://colab.research.google.com/drive/1UwO27IYQVmsa-DD4sbxN7FdK_yfFAVkV?usp=share_link
 
-from keras.models import Model
-from keras.layers import Input, Dense, Conv2D, MaxPool2D, Flatten
-from keras.utils import to_categorical
+from tensorflow.keras import Model, Input
+from tensorflow.keras.layers import Dense, Conv2D, MaxPool2D, Flatten
+from tensorflow.keras.utils import to_categorical
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import numpy as np
@@ -27,7 +27,7 @@ model.compile(optimizer='adam',
 model.summary()
 
 
-#Read data from file (download form https://drive.google.com/file/d/1UACFvQ8QCFUQaBWz9umQxbUWLSQlh1co/view?usp=sharing)
+#Read data from file (download form https://drive.google.com/drive/folders/1YfdtWbsh9FRlyZwW5hNvmTb-jEDlhtCY?usp=sharing)
 N = 30
 x_train = np.zeros((N,50,50,1),'float')
 y_train = np.zeros((N),'float')
