@@ -3,7 +3,7 @@
 
 from tensorflow.keras import Model, Input
 from tensorflow.keras.models import load_model
-from tensorflow.keras.layers import Dense, Dropout, Flatten, BatchNormalization, Conv2D, MaxPool2D
+from tensorflow.keras.layers import Dense, Dropout, Flatten, BatchNormalization, Conv2D, MaxPooling2D
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import Callback, ModelCheckpoint
@@ -53,23 +53,23 @@ inputIm = Input(shape = (IMAGE_SIZE[0],IMAGE_SIZE[1],3,))
 conv1 = Conv2D(64,3,activation='relu')(inputIm)
 conv1 = Conv2D(64,3,activation='relu')(conv1)
 conv1 = BatchNormalization()(conv1)
-pool1 = MaxPool2D()(conv1)
+pool1 = MaxPooling2D()(conv1)
 conv2 = Conv2D(128,3,activation='relu')(pool1)
 conv2 = Conv2D(128,3,activation='relu')(conv2)
 conv2 = BatchNormalization()(conv2)
-pool2 = MaxPool2D()(conv2)
+pool2 = MaxPooling2D()(conv2)
 conv3 = Conv2D(256,3,activation='relu')(pool2)
 conv3 = Conv2D(256,3,activation='relu')(conv3)
 conv3 = BatchNormalization()(conv3)
-pool3 = MaxPool2D()(conv3)
+pool3 = MaxPooling2D()(conv3)
 conv4 = Conv2D(512,3,activation='relu')(pool3)
 conv4 = Conv2D(512,3,activation='relu')(conv4)
 conv4 = BatchNormalization()(conv4)
-pool4 = MaxPool2D()(conv4)
+pool4 = MaxPooling2D()(conv4)
 conv5 = Conv2D(1024,3,activation='relu')(pool4)
 conv5 = Conv2D(1024,3,activation='relu')(conv5)
 conv5 = BatchNormalization()(conv5)
-pool5 = MaxPool2D()(conv5)
+pool5 = MaxPooling2D()(conv5)
 flat = Flatten()(pool5)
 dense1 = Dense(512,activation='sigmoid')(flat)
 dense1 = Dropout(0.5)(dense1)
