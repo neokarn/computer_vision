@@ -2,7 +2,7 @@
 #https://colab.research.google.com/drive/1UwO27IYQVmsa-DD4sbxN7FdK_yfFAVkV?usp=share_link
 
 from tensorflow.keras import Model, Input
-from tensorflow.keras.layers import Dense, Conv2D, MaxPool2D, Flatten
+from tensorflow.keras.layers import Dense, Conv2D, MaxPooling2D, Flatten
 from tensorflow.keras.utils import to_categorical
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
@@ -12,9 +12,9 @@ import cv2
 #Create model
 input = Input(shape = (50,50,1))
 conv1 = Conv2D(10,3,activation='relu')(input)
-pool1 = MaxPool2D(pool_size=(2, 2))(conv1)
+pool1 = MaxPooling2D(pool_size=(2, 2))(conv1)
 conv2 = Conv2D(20,3,activation='relu')(pool1)
-pool2 = MaxPool2D(pool_size=(2, 2))(conv2)
+pool2 = MaxPooling2D(pool_size=(2, 2))(conv2)
 flat = Flatten()(pool2)
 hidden = Dense(12, activation='relu')(flat)
 output = Dense(3, activation='softmax')(hidden)
