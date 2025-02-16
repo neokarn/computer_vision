@@ -1,5 +1,5 @@
 #For Goole Colab Version
-#https://colab.research.google.com/drive/1pwjr6jCgLnrlWSfBcDF-IakPlsrM_VxW?usp=share_link
+#https://colab.research.google.com/drive/1i9yo9FYc42LsQELVlw6t-L23k6GbMbJp?usp=sharing
 
 from tensorflow.keras import Model, Input
 from tensorflow.keras.models import load_model
@@ -100,7 +100,6 @@ predictedW = Dense(1,activation='sigmoid')(dense)
 model = Model(inputs=inputIm, outputs=predictedW)
 
 model.compile(optimizer=Adam(learning_rate = 1e-4), loss='mse', metrics=['mean_absolute_error'])
-
 
 class PlotLosses(Callback):
     def on_train_begin(self, logs={}):
