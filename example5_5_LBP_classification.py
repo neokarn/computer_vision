@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 from skimage.feature import local_binary_pattern
 
-#download images form https://drive.google.com/file/d/1JfJYr-qJvgt1Jyz-Gop-oRci-TipuQmb/view?usp=sharing
+#download images form https://drive.google.com/file/d/1o5FiciaF3vcXmhoYRlD-fcjErFYHxD2d/view?usp=sharing
 
 
 count = 0
