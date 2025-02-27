@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 from skimage.feature import graycomatrix, graycoprops
 
-#download images form https://drive.google.com/file/d/1JfJYr-qJvgt1Jyz-Gop-oRci-TipuQmb/view?usp=sharing
+#download images form https://drive.google.com/file/d/1o5FiciaF3vcXmhoYRlD-fcjErFYHxD2d/view?usp=sharing
 
 im = cv2.imread("TextureClassification//Beef//1.jpg")
 im_gray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
